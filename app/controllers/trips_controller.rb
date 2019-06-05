@@ -26,6 +26,10 @@ before_action :redirect_if_not_logged_in, only: [:new, :index]
         @trips = current_user.trips.descending_order
         @current_user = current_user
         @location = Location.new
+        respond_to do |f|
+            f.html
+            f.json {render json: @trips}
+        end
     end
     
     private 
