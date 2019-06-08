@@ -4,6 +4,8 @@ $(document).ready(function () {
 
 function attachListeners() {
     $('#all_trips').click(function() {
-        console.log("All trips clicked")
+        fetch(`/trips.json`)
+            .then((res) => res.json())
+            .then(data => console.log(data))
     });
 } 
