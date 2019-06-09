@@ -20,6 +20,10 @@ before_action :redirect_if_not_logged_in, only: [:new, :index]
         set_trip
         @trip_entries = @trip.trip_entries
         @trip_entry = TripEntry.new
+        respond_to do |f|
+            f.html 
+            f.json {render json: @trip}
+        end
     end
 
     def index 

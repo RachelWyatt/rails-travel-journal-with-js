@@ -14,6 +14,17 @@ function attachListeners() {
                 })
             })
     });
+
+    $(document).on('click', "#trip_show", function(e) {
+        let id = $(this).attr('data-id')
+        fetch(`/trips/${id}.json`)
+        .then(res => res.json())
+        .then(trip => {
+            console.log(trip)
+        })
+    })
+
+    
 } 
 
 
@@ -25,7 +36,7 @@ function Trip(trip) {
 
 Trip.prototype.formatIndex = function(){
     let postHtml = `
-    <h2>${this.name}</h2>
+    <h2 button type="button" data-id="${this.id}" class="btn btn-primary" id="trip_show"> ${this.name}</h2> 
     `
     return postHtml
 }
