@@ -7,18 +7,25 @@ function attachListeners() {
         fetch(`/trips.json`)
             .then(res => res.json())
             .then(trips => {
-                $('#trips-container').html('')
                 trips.forEach((trip) => {
                     let newTrip = new Trip(trip)
-                    console.log(newTrip)
+                    let postHtml = newTrip.formatIndex()
+                    $('#trips-container').append(postHtml)
                 })
             })
     });
 } 
 
 
-function Trip(id, name, user) {
-    this.id = id 
-    this.name = name
-    this.user = user
+function Trip(trip) {
+    this.id = trip.id 
+    this.name = trip.name
+    this.user = trip.user
+}
+
+Trip.prototype.formatIndex = function(){
+    let postHtml = `
+    <h2>${this.name}</h2>
+    `
+    return postHtml
 }
