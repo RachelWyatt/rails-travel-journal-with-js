@@ -29,7 +29,12 @@ function attachListeners() {
 
     $('#new_location').on("submit", function(e) {
         e.preventDefault();
-        console.log("Submitting post")
+        const values = ($(this).serialize())
+        $.post('/locations', values)
+            .done(function(data) {
+                console.log(data)
+                $('#new_location_container').html('<h1>HI</h1>')
+            });
     });
     
 } 

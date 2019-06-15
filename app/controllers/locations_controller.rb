@@ -8,7 +8,8 @@ class LocationsController < ApplicationController
     def create
         @location = Location.new(location_params)
         if @location.save
-            redirect_to root_path
+            #redirect_to root_path
+            render json: @location
         else 
             render 'locations/new'
         end 
