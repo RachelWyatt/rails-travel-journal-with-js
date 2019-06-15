@@ -22,8 +22,8 @@ function attachListeners() {
         .then(res => res.json())
         .then(trip => {
             let newTrip = new Trip(trip)
-            let postHtml = newTrip.formatShow()
-            $('#app-container').append(postHtml)
+            let journal = newTrip.formatJournalEntries()
+            $('#app-container').append(journal)
     })
     })
     
@@ -44,9 +44,17 @@ Trip.prototype.formatIndex = function(){
     return postHtml
 }
 
-Trip.prototype.formatShow = function(){
-     let postHtml = `
-    <h3> ${this.name}</h3> 
+Trip.prototype.formatJournalEntries = function() {
+    let array = this.trip_entries 
+    let arr = []
+    let journal_entries = 
+    array.forEach(function(item) {
+        arr.push(item.journal_entry) 
+    })
+    console.log(journal_entries)
+    let postHtml = `
+    <p> ${arr} </p> 
     `
+    console.log(arr)
     return postHtml
 }
