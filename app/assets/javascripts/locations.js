@@ -3,17 +3,8 @@ $(document).ready(function () {
 });
 
 function attachLocationListeners() {
-    $('#all_locations').click(function() {
-        console.log("Locations index clicked");
-    })
-    $(':submit').click(function(e) {
+    $('#new_location').on("submit", function(e) {
         e.preventDefault();
-        console.log("Locations clicked");
-    })
+        console.log("Submitting post")
+    });
 };
-
-function Location(location) {
-    this.id = location.id 
-    this.name = location.name
-    this.user = trip.user
-}

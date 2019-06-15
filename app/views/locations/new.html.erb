@@ -26,7 +26,7 @@
 <%end%>
 
 <%= form_for @location, url: locations_path do |f|%>
-  <div class="form-group">
+  <div class="form-group" id="location-form">
     <%= f.label :name %>
     <%= f.text_field :name%>
   </div>
