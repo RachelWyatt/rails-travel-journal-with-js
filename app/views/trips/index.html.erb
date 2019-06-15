@@ -7,19 +7,3 @@
 </div>
 </div>
 <br>
-<button type="button" class="btn btn-primary" id="all_locations"> Where You've Been: </button>
-<div class="container p-3">
-<div class="row justify-content-md-center">
-<h2 class= "ml-5"> Where To Next? </h2><br>
-<div class="container p-3">
-<div class="row justify-content-md-center">
-     <%= form_for @location, url: locations_path do |f|%>
-        <div class="form-group">
-            <%= f.label :name %>
-            <%= f.text_field :name%>
-        </div>
-        <br>
-        <%= f.submit 'Create Location', :class => "btn btn-primary" %>
-    <% end %>
-</div>
-</div>
