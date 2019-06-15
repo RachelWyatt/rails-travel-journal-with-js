@@ -32,8 +32,9 @@ function attachListeners() {
         const values = ($(this).serialize())
         $.post('/locations', values)
             .done(function(data) {
-                console.log(data)
-                $('#new_location_container').html('<h1>HI</h1>')
+                
+                const newLocation = new Location(data)
+                $('#new_location_container').html(`<h1>${newLocation.name}</h1>`)
             });
     });
     
