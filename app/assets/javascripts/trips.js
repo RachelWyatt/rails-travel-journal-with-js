@@ -60,16 +60,17 @@ Trip.prototype.formatIndex = function(){
 }
 
 Trip.prototype.formatJournalEntries = function() {
-    let array = this.trip_entries 
-    let arr = []
     let journal_entries = 
-    array.forEach(function(item) {
-        arr.push(item.journal_entry) 
+    this.trip_entries.map(function(item) {
+        return item.journal_entry
     })
-    console.log(journal_entries)
     let postHtml = `
-    <p> ${arr} </p> 
+    <p> ${journal_entries} </p> 
     `
-    console.log(arr)
     return postHtml
 }
+
+/* this.trip_entries.each do |t|
+        t.journal_entry 
+    end 
+    */
