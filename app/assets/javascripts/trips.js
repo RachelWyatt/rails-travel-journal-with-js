@@ -3,7 +3,8 @@ $(document).ready(function () {
 });
 
 function attachListeners() {
-    $('#all_trips').click(function() {
+    $('#all_trips').click(function(e) {
+        e.preventDefault();
         fetch(`/trips.json`)
             .then(res => res.json())
             .then(trips => {
@@ -16,14 +17,13 @@ function attachListeners() {
     });
 
     $(document).on('click', "#trip_show", function(e) {
-        $('#app-container').html('')
         let id = $(this).attr('data-id')
         fetch(`/trips/${id}.json`)
         .then(res => res.json())
         .then(trip => {
             let newTrip = new Trip(trip)
             let journal = newTrip.formatJournalEntries()
-            $('#app-container').append(journal)
+            $('#trips-show-container').append(journal)
     })
     })
 
