@@ -39,6 +39,10 @@ function attachListeners() {
     
 } 
 
+function Location(location) {
+    this.id = location.id 
+    this.name = location.name
+}
 
 function Trip(trip) {
     this.id = trip.id 
