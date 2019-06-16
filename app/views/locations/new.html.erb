@@ -3,11 +3,9 @@
 <div class="row justify-content-md-center">
     <% if @locations %>
         <%@locations.each do |l|%>
-            <span class = "border p-3">
             <div class="col col-md-auto ml-md-auto">
-                <%=l.name%>
+               <li> <%=l.name%> </li>
             </div>
-            </span>
         <%end%>
       <% end %>
 </div>

@@ -34,7 +34,7 @@ function attachListeners() {
             .done(function(data) {
                 
                 const newLocation = new Location(data)
-                $('#new_location_container').html(`<h1>${newLocation.name}</h1>`)
+                $('#new_location_container').html(`<div class="col col-md-auto ml-md-auto"><li>${newLocation.name}</li></div>`)
             });
     });
     
