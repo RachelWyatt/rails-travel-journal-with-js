@@ -60,10 +60,11 @@ Trip.prototype.formatIndex = function(){
 }
 
 Trip.prototype.formatJournalEntries = function() {
-    let postHtml = `
-    <p> ${this.trip_entries.map(function(item) {
-            return " " + item.journal_entry;
-    })} </p> 
-    `
-    return postHtml
+    let result = ""
+    this.trip_entries.forEach(function(el) {
+        console.log(el.journal_entry.join)
+        result += el.journal_entry + '<br> '
+    })
+    return result
+
 }
