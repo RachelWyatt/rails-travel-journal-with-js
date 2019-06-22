@@ -63,7 +63,7 @@ Trip.prototype.formatJournalEntries = function() {
     let result = ""
     this.trip_entries.forEach(function(el) {
         console.log(el.journal_entry.join)
-        result += el.journal_entry + '<br> '
+        result += el.created_at.to_formatted_s + ': ' + el.journal_entry + '<br> '
     })
     return result
 

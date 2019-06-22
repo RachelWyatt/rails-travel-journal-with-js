@@ -15,6 +15,7 @@
 //= require activestorage
 //= require trips
 //= require_tree .
+//= require moment
 
 
 
