@@ -31,13 +31,11 @@ const attachListeners = () => {
         e.preventDefault();
         const values = ($(this).serialize())
         $.post('/locations', values)
-            .done(function(data) {
-                
+            .done(data => {
                 const newLocation = new Location(data)
                 $('#new_location_container').html(`<div class="col col-md-auto ml-md-auto"><li>${newLocation.name}</li></div>`)
             });
     });
-    
 } 
 
 function Location(location) {
@@ -66,5 +64,4 @@ Trip.prototype.formatJournalEntries = function() {
         result += date + ': ' + el.journal_entry + '<br> '
     })
     return result
-
 }
